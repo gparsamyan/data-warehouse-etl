@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://local.google.com/local_feed.xsd">
+  <language>en</language>
+
+  <listing>
+    <id>98772</id>
+
+    <name>131 The Promenade</name>
+
+    <address format="simple">
+      <component name="addr1">131 The Promenade</component>
+      <component name="city">Cheltenham</component>
+      <component name="postal_code">GL50 1NW</component>
+      <component name="province">Gloucestershire</component>
+    </address>
+
+    <country>GB</country>
+    <latitude>51.898262</latitude>
+    <longitude>-2.078959</longitude>
+
+    <phone type="main">01242822939</phone>
+
+    <content>
+      <attributes>
+        <link>http://www.opentable.co.uk/rest_profile.aspx?rid=98772&amp;ref=4208</link>
+        <website>www.131promenade.com</website>
+
+        <attr name="Reservation">http://www.opentable.co.uk/rest_profile.aspx?rid=98772&amp;ref=4208</attr>
+      </attributes>
+    </content>
+  </listing>
+ </listings>

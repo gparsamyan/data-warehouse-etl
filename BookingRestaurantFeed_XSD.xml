@@ -1,0 +1,76 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="bookingsrestaurant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="restaurantdetails" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="rid"/>
+              <xs:element type="xs:string" name="rname"/>
+              <xs:element type="xs:string" name="phone"/>
+              <xs:element type="xs:string" name="metroareaid"/>
+              <xs:element type="xs:string" name="metroareaname"/>
+              <xs:element type="xs:string" name="region"/>
+              <xs:element type="xs:string" name="nbhoodid"/>
+              <xs:element type="xs:string" name="nbhoodname"/>
+              <xs:element type="xs:string" name="macroname"/>
+              <xs:element type="xs:string" name="Street"/>
+              <xs:element type="xs:string" name="city"/>
+              <xs:element type="xs:string" name="state"/>
+              <xs:element type="xs:string" name="country"/>
+              <xs:element type="xs:string" name="lat"/>
+              <xs:element type="xs:string" name="long"/>
+              <xs:element type="xs:string" name="pfoodtype"/>
+              <xs:element type="xs:string" name="primarycuisine"/>
+              <xs:element type="xs:string" name="hours"/>
+              <xs:element type="xs:string" name="price"/>
+              <xs:element type="xs:string" name="pricesymbol"/>
+              <xs:element name="additionaldetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="tag1"/>
+                    <xs:element type="xs:string" name="tag2"/>
+                    <xs:element type="xs:string" name="tag3"/>
+                    <xs:element type="xs:string" name="tag4"/>
+                    <xs:element type="xs:string" name="tag5"/>
+                    <xs:element type="xs:string" name="tag6"/>
+                    <xs:element type="xs:string" name="tag7"/>
+                    <xs:element type="xs:string" name="tag8"/>
+                    <xs:element type="xs:string" name="tag9"/>
+                    <xs:element type="xs:string" name="tag10"/>
+                    <xs:element type="xs:string" name="tag11"/>
+                    <xs:element type="xs:string" name="tag12"/>
+                    <xs:element type="xs:string" name="tag13"/>
+                    <xs:element type="xs:string" name="tag14"/>
+                    <xs:element type="xs:string" name="tag15"/>
+                    <xs:element type="xs:string" name="tag16"/>
+                    <xs:element type="xs:string" name="tag17"/>
+                    <xs:element type="xs:string" name="tag18"/>
+                    <xs:element type="xs:string" name="tag19"/>
+                    <xs:element type="xs:string" name="tag20"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="pubtransit"/>
+              <xs:element type="xs:float" name="aggratingscore"/>
+              <xs:element name="subratingscores">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:float" name="food"/>
+                    <xs:element type="xs:float" name="service"/>
+                    <xs:element type="xs:float" name="ambience"/>
+                    <xs:element type="xs:float" name="noise"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:short" name="recommended"/>
+              <xs:element type="xs:short" name="totalratings"/>
+              <xs:element type="xs:string" name="siteid"/>
+              <xs:element type="xs:short" name="isactive"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

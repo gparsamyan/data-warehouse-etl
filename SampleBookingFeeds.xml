@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bookingsrestaurant xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <restaurantdetails>
+    <rid>65536</rid>
+    <rname>Isla Cies</rname>
+    <phone>5552800306</phone>
+    <metroareaid>57</metroareaid>
+    <metroareaname>Ciudad de México</metroareaname>
+    <nbhoodid>1404</nbhoodid>
+    <nbhoodname>Polanco / Nueva Anzures / Lomas de Chapultepec</nbhoodname>
+    <macroname>Ciudad de México</macroname>
+    <Street>Galileo 17</Street>
+    <city>Miguel Hidalgo</city>
+    <state>DIF</state>
+    <country>MX</country>
+    <lat>19.428768999999999</lat>
+    <long>-99.193033999999997</long>
+    <pfoodtype>Española</pfoodtype>
+    <primarycuisine>Informal</primarycuisine>
+    <hours>Lunch: Monday - Saturday: 1:00pm – 12:00am;Sunday: 1:00pm - 6:00pm &lt;br&gt;&lt;br&gt; Comida: Lunes - Sabado: 1:00pm – 12:00am;Domingo: 1:00pm - 6:00pm</hours>
+    <price>De MXN310 a MXN500</price>
+    <pricesymbol>$$$</pricesymbol>
+    <additionaldetails>
+    </additionaldetails>
+    <subratingscores>
+    </subratingscores>
+    <recommended>0</recommended>
+    <totalratings>0</totalratings>
+    <siteid>.com.mx</siteid>
+    <isactive>0</isactive>
+  </restaurantdetails>
+ </bookingsrestaurant>

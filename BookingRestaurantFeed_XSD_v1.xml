@@ -1,0 +1,1456 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+<xs:element name="listings">
+<xs:annotation>
+<xs:documentation>
+Encapsulates all the listings in the feed. This is the document root tag of the XML file.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="language"/>
+<xs:element minOccurs="0" ref="datum"/>
+<xs:element minOccurs="0" ref="shared_content"/>
+<xs:element minOccurs="1" maxOccurs="unbounded" ref="listing"/>
+</xs:sequence>
+</xs:complexType>
+<!--  Enforce unique listings  -->
+<xs:unique name="uniqueId">
+<xs:selector xpath=".//listing"/>
+<xs:field xpath="id"/>
+</xs:unique>
+<!--
+ Enforce unique coupon ids across shared/specific coupons 
+-->
+<xs:unique name="uniqueCouponId">
+<xs:selector xpath=".//shared_content/coupon | .//listing/content/coupon"/>
+<xs:field xpath="id"/>
+</xs:unique>
+<!--
+ Ensure idrefs used by coupons refer to declared ids 
+-->
+<xs:keyref name="couponRef" refer="uniqueCouponId">
+<xs:selector xpath=".//shared_content/coupon | .//listing/content/coupon"/>
+<xs:field xpath="idref"/>
+</xs:keyref>
+</xs:element>
+<xs:element name="shared_content">
+<xs:annotation>
+<xs:documentation>
+Acts a container for data shared b/w in listings in the feed. As of 2009/04, this is just coupons.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="coupon"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="language" type="language.content">
+<xs:annotation>
+<xs:documentation>
+The language used in this feed. The value must be an ISO 639 lowercase 2-letter language code (http://www.w3.org/WAI/ER/IG/ert/iso639.htm#2letter). For example English is en, French is fr.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:simpleType name="language.content">
+<xs:restriction base="xs:language">
+<xs:enumeration value="aa"/>
+<xs:enumeration value="ab"/>
+<xs:enumeration value="af"/>
+<xs:enumeration value="am"/>
+<xs:enumeration value="ar"/>
+<xs:enumeration value="as"/>
+<xs:enumeration value="ay"/>
+<xs:enumeration value="az"/>
+<xs:enumeration value="ba"/>
+<xs:enumeration value="be"/>
+<xs:enumeration value="bg"/>
+<xs:enumeration value="bh"/>
+<xs:enumeration value="bi"/>
+<xs:enumeration value="bn"/>
+<xs:enumeration value="bo"/>
+<xs:enumeration value="br"/>
+<xs:enumeration value="ca"/>
+<xs:enumeration value="co"/>
+<xs:enumeration value="cs"/>
+<xs:enumeration value="cy"/>
+<xs:enumeration value="da"/>
+<xs:enumeration value="de"/>
+<xs:enumeration value="dz"/>
+<xs:enumeration value="el"/>
+<xs:enumeration value="en"/>
+<xs:enumeration value="eo"/>
+<xs:enumeration value="es"/>
+<xs:enumeration value="et"/>
+<xs:enumeration value="eu"/>
+<xs:enumeration value="fa"/>
+<xs:enumeration value="fi"/>
+<xs:enumeration value="fj"/>
+<xs:enumeration value="fo"/>
+<xs:enumeration value="fr"/>
+<xs:enumeration value="fy"/>
+<xs:enumeration value="ga"/>
+<xs:enumeration value="gd"/>
+<xs:enumeration value="gl"/>
+<xs:enumeration value="gn"/>
+<xs:enumeration value="gu"/>
+<xs:enumeration value="ha"/>
+<xs:enumeration value="he"/>
+<xs:enumeration value="hi"/>
+<xs:enumeration value="hr"/>
+<xs:enumeration value="hu"/>
+<xs:enumeration value="hy"/>
+<xs:enumeration value="ia"/>
+<xs:enumeration value="id"/>
+<xs:enumeration value="ie"/>
+<xs:enumeration value="ik"/>
+<xs:enumeration value="in"/>
+<xs:enumeration value="is"/>
+<xs:enumeration value="it"/>
+<xs:enumeration value="iw"/>
+<xs:enumeration value="ja"/>
+<xs:enumeration value="ji"/>
+<xs:enumeration value="jw"/>
+<xs:enumeration value="ka"/>
+<xs:enumeration value="kk"/>
+<xs:enumeration value="kl"/>
+<xs:enumeration value="km"/>
+<xs:enumeration value="kn"/>
+<xs:enumeration value="ko"/>
+<xs:enumeration value="ks"/>
+<xs:enumeration value="ku"/>
+<xs:enumeration value="ky"/>
+<xs:enumeration value="la"/>
+<xs:enumeration value="ln"/>
+<xs:enumeration value="lo"/>
+<xs:enumeration value="lt"/>
+<xs:enumeration value="lv"/>
+<xs:enumeration value="mg"/>
+<xs:enumeration value="mi"/>
+<xs:enumeration value="mk"/>
+<xs:enumeration value="ml"/>
+<xs:enumeration value="mn"/>
+<xs:enumeration value="mo"/>
+<xs:enumeration value="mr"/>
+<xs:enumeration value="ms"/>
+<xs:enumeration value="mt"/>
+<xs:enumeration value="my"/>
+<xs:enumeration value="na"/>
+<xs:enumeration value="ne"/>
+<xs:enumeration value="nl"/>
+<xs:enumeration value="no"/>
+<xs:enumeration value="oc"/>
+<xs:enumeration value="om"/>
+<xs:enumeration value="or"/>
+<xs:enumeration value="pa"/>
+<xs:enumeration value="pl"/>
+<xs:enumeration value="ps"/>
+<xs:enumeration value="pt"/>
+<xs:enumeration value="pt-BR"/>
+<xs:enumeration value="pt-PT"/>
+<xs:enumeration value="qu"/>
+<xs:enumeration value="rm"/>
+<xs:enumeration value="rn"/>
+<xs:enumeration value="ro"/>
+<xs:enumeration value="ru"/>
+<xs:enumeration value="rw"/>
+<xs:enumeration value="sa"/>
+<xs:enumeration value="sd"/>
+<xs:enumeration value="sg"/>
+<xs:enumeration value="sh"/>
+<xs:enumeration value="si"/>
+<xs:enumeration value="sk"/>
+<xs:enumeration value="sl"/>
+<xs:enumeration value="sm"/>
+<xs:enumeration value="sn"/>
+<xs:enumeration value="so"/>
+<xs:enumeration value="sq"/>
+<xs:enumeration value="sr"/>
+<xs:enumeration value="ss"/>
+<xs:enumeration value="st"/>
+<xs:enumeration value="su"/>
+<xs:enumeration value="sv"/>
+<xs:enumeration value="sw"/>
+<xs:enumeration value="ta"/>
+<xs:enumeration value="te"/>
+<xs:enumeration value="tg"/>
+<xs:enumeration value="th"/>
+<xs:enumeration value="ti"/>
+<xs:enumeration value="tk"/>
+<xs:enumeration value="tl"/>
+<xs:enumeration value="tn"/>
+<xs:enumeration value="to"/>
+<xs:enumeration value="tr"/>
+<xs:enumeration value="ts"/>
+<xs:enumeration value="tt"/>
+<xs:enumeration value="tw"/>
+<xs:enumeration value="uk"/>
+<xs:enumeration value="ur"/>
+<xs:enumeration value="uz"/>
+<xs:enumeration value="vi"/>
+<xs:enumeration value="vo"/>
+<xs:enumeration value="wo"/>
+<xs:enumeration value="xh"/>
+<xs:enumeration value="yo"/>
+<xs:enumeration value="zh"/>
+<xs:enumeration value="zh-CN"/>
+<xs:enumeration value="zh-TW"/>
+<xs:enumeration value="zu"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="datum">
+<xs:annotation>
+<xs:documentation>
+The datum in use for geographic coordinates. Currently supported values: TOKYO, WGS84 If this tag is absent, WGS84 is assumed.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="TOKYO"/>
+<xs:enumeration value="tokyo"/>
+<xs:enumeration value="WGS84"/>
+<xs:enumeration value="wgs84"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="listing">
+<xs:annotation>
+<xs:documentation>
+Encapsulates all the information related to a single business.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="id"/>
+<xs:element minOccurs="0" ref="relation"/>
+<xs:element ref="name" maxOccurs="unbounded"/>
+<xs:element ref="address" maxOccurs="unbounded"/>
+<xs:element ref="country"/>
+<xs:element minOccurs="0" ref="latitude"/>
+<xs:element minOccurs="0" ref="longitude"/>
+<xs:element minOccurs="0" ref="locationinfo"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="phone"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="category"/>
+<xs:element minOccurs="0" ref="date"/>
+<xs:element minOccurs="0" ref="content"/>
+<xs:element minOccurs="0" ref="metroareaid"/>
+<xs:element minOccurs="0" ref="metroareaname"/>
+<xs:element minOccurs="0" ref="nbhoodid"/>
+<xs:element minOccurs="0" ref="nbhoodname"/>
+<xs:element minOccurs="0" ref="macroname"/>
+<xs:element minOccurs="0" ref="macroname"/>
+<xs:element minOccurs="0" ref="recommended"/>
+<xs:element minOccurs="0" ref="totalratings"/>
+<xs:element minOccurs="0" ref="siteid"/>
+<xs:element minOccurs="0" ref="isactive"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="additionaldetails">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element type="xs:string" name="tag1"/>
+		<xs:element type="xs:string" name="tag2"/>
+		<xs:element type="xs:string" name="tag3"/>
+		<xs:element type="xs:string" name="tag4"/>
+		<xs:element type="xs:string" name="tag5"/>
+		<xs:element type="xs:string" name="tag6"/>
+		<xs:element type="xs:string" name="tag7"/>
+		<xs:element type="xs:string" name="tag8"/>
+		<xs:element type="xs:string" name="tag9"/>
+		<xs:element type="xs:string" name="tag10"/>
+		<xs:element type="xs:string" name="tag11"/>
+		<xs:element type="xs:string" name="tag12"/>
+		<xs:element type="xs:string" name="tag13"/>
+		<xs:element type="xs:string" name="tag14"/>
+		<xs:element type="xs:string" name="tag15"/>
+		<xs:element type="xs:string" name="tag16"/>
+		<xs:element type="xs:string" name="tag17"/>
+		<xs:element type="xs:string" name="tag18"/>
+		<xs:element type="xs:string" name="tag19"/>
+		<xs:element type="xs:string" name="tag20"/>
+	  </xs:sequence>
+	</xs:complexType>
+ </xs:element>
+ <xs:element name="subratingscores">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element type="xs:float" name="food"/>
+		<xs:element type="xs:float" name="service"/>
+		<xs:element type="xs:float" name="ambience"/>
+		<xs:element type="xs:float" name="noise"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element> 
+<xs:element name="id">
+<xs:annotation>
+<xs:documentation>Unique ID of the listing on your site.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="relation">
+<xs:annotation>
+<xs:documentation>
+Encapsulates one relation between this listing and another listing.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="1" maxOccurs="1" ref="parent_id"/>
+<xs:element minOccurs="1" maxOccurs="1" ref="relation_type"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="parent_id">
+<xs:annotation>
+<xs:documentation>
+Unique ID of the parent listing: e.g. mail for a store. university for a department. lawfirm for a lawyer.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="relation_type">
+<xs:annotation>
+<xs:documentation>
+Relation type between this listing and the parent listing identified by parent_id.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="inside"/>
+<xs:enumeration value="department"/>
+<xs:enumeration value="works_at"/>
+<xs:enumeration value="member_of_chain"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="name">
+<xs:annotation>
+<xs:documentation>
+The name of the business, with a optional language attribute.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="name.content">
+<xs:attribute name="language" type="language.content">
+<xs:annotation>
+<xs:documentation>The language of the business name.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="name.content">
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="address">
+<xs:annotation>
+<xs:documentation>
+Address of the business, including street number, street name, town/city, state/province/region, and postal code. Example: 1600 Amphitheatre Parkway, Mountain View, CA 94043
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="component"/>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.address"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.address">
+<xs:annotation>
+<xs:documentation>The type of address data provided.</xs:documentation>
+</xs:annotation>
+<xs:attribute name="format">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="language" type="language.content">
+<xs:annotation>
+<xs:documentation>The language of the address.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="component">
+<xs:annotation>
+<xs:documentation>
+A particular component of an address. Example:
+<component name="addr1">1600 Amphitheatre Parkway</component>
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.component"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.component">
+<xs:annotation>
+<xs:documentation>
+The type of address component provided. Example: addr1
+</xs:documentation>
+</xs:annotation>
+<xs:attribute name="name" use="required">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="country">
+<xs:annotation>
+<xs:documentation>
+The country that this listing is located in. The value must be a ISO 3116 uppercase 2-letter country code (http://www.iso.org/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html). For example, United States is US and Canada is CA.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[A-Z]{2}"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="latitude">
+<xs:annotation>
+<xs:documentation>
+The latitude that corresponds to the location of the listing. For example, the latitude for 1600 Amphitheatre Parkway, Mountain View, CA 94043 is 37.423738.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:float">
+<xs:minInclusive value="-90.0"/>
+<xs:maxInclusive value="90.0"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="longitude">
+<xs:annotation>
+<xs:documentation>
+The longitude that corresponds to the location of the listing. For example, the latitude for 1600 Amphitheatre Parkway, Mountain View, CA 94043 is -122.090101.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:float">
+<xs:minInclusive value="-180.0"/>
+<xs:maxInclusive value="180.0"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="locationinfo">
+<xs:annotation>
+<xs:documentation>Flags about the location of the listing.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attributeGroup ref="attlist.locationinfo"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.locationinfo">
+<xs:attribute name="geocode">
+<xs:annotation>
+<xs:documentation>Additional information about the geocode.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="verified">
+<xs:annotation>
+<xs:documentation>
+Indicates that the latlong of the business was verified / moved to the right place.
+</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="phone">
+<xs:annotation>
+<xs:documentation>The phone number of the business.</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="1" ref="rate"/>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.phone"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.phone">
+<xs:attribute name="type" use="required">
+<xs:annotation>
+<xs:documentation>The type of the phone number.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="main">
+<xs:annotation>
+<xs:documentation>Main voice telephone number.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="tollfree">
+<xs:annotation>
+<xs:documentation>Toll free telephone number.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="fax">
+<xs:annotation>
+<xs:documentation>Fax telephone number.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="tdd">
+<xs:annotation>
+<xs:documentation>
+Telecommunications Device for the Deaf telephone number.
+</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="mobile">
+<xs:annotation>
+<xs:documentation>Mobile telephone number.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="rate">
+<xs:annotation>
+<xs:documentation>Premium phone number rate.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attributeGroup ref="attlist.rate"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.rate">
+<xs:attribute name="price" use="required" type="xs:decimal">
+<xs:annotation>
+<xs:documentation>The premium rate price e.g. "1.19"</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="currency" use="required">
+<xs:annotation>
+<xs:documentation>The three-letter currency code e.g. CHF, USD, EUR.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:length value="3"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="billing" use="required">
+<xs:annotation>
+<xs:documentation>How the premium rate is billed.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="per_phone_call"/>
+<xs:enumeration value="per_second"/>
+<xs:enumeration value="per_minute"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="category">
+<xs:annotation>
+<xs:documentation>
+The category that the listing belongs to (based on your site's taxonomy). Example: Restaurants - Chinese One listing can contain any number of categories in any number of languages.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="category.content">
+<xs:attribute name="language" type="language.content">
+<xs:annotation>
+<xs:documentation>
+Defines the language of the current category. If it is missing then the global language is used (defined in listings -> language). It is a good practice to leave out this attribute if all the categories are in the same language.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="category.content">
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="content">
+<xs:annotation>
+<xs:documentation>
+Encapsulates all the content relevant to a listing.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element ref="text"/>
+<xs:element ref="review"/>
+<xs:element ref="image"/>
+<xs:element ref="attributes"/>
+<xs:element ref="coupon"/>
+<xs:element ref="menu"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="text">
+<xs:annotation>
+<xs:documentation>
+Encapsulates a block of text about the listing such as a description or a restaurant menu.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="link"/>
+<xs:element minOccurs="0" ref="title"/>
+<xs:element minOccurs="0" ref="author"/>
+<xs:element ref="body"/>
+<xs:element minOccurs="0" ref="date"/>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.text"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.text">
+<xs:attribute name="type">
+<xs:annotation>
+<xs:documentation>The type of the text.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="description">
+<xs:annotation>
+<xs:documentation>
+If the contents are a general description of the business.
+</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="offer">
+<xs:annotation>
+<xs:documentation>If the contents are an offer or coupon.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="menu">
+<xs:annotation>
+<xs:documentation>If the contents are are a restaurant menu.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="review">
+<xs:annotation>
+<xs:documentation>Encapsulates a single review of the listing.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="link"/>
+<xs:element minOccurs="0" ref="title"/>
+<xs:element minOccurs="0" ref="author"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="rating"/>
+<xs:element ref="body"/>
+<xs:element minOccurs="0" ref="date"/>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.review"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.review">
+<xs:attribute name="type" use="required">
+<xs:annotation>
+<xs:documentation>The type of the review.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="editorial">
+<xs:annotation>
+<xs:documentation>Review was written by a member of your staff.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="user">
+<xs:annotation>
+<xs:documentation>Review was written by a user of your site.</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="image">
+<xs:annotation>
+<xs:documentation>Encapsulates an image relevant to the listing.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="link"/>
+<xs:element minOccurs="0" ref="title"/>
+<xs:element minOccurs="0" ref="author"/>
+<xs:element minOccurs="0" ref="date"/>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.image"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.image">
+<xs:attribute name="type" use="required">
+<xs:annotation>
+<xs:documentation>The image type.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="ad"/>
+<xs:enumeration value="coupon"/>
+<xs:enumeration value="menu"/>
+<xs:enumeration value="photo"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="url" type="xs:string" use="required">
+<xs:annotation>
+<xs:documentation>The URL of the full-sized image</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="width" type="xs:unsignedInt">
+<xs:annotation>
+<xs:documentation>The width of the image</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="height" type="xs:unsignedInt">
+<xs:annotation>
+<xs:documentation>The height of the image</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="attributes">
+<xs:annotation>
+<xs:documentation>
+Encapsulates a set of attributes about the listing. All attributes must be displayed on a single page on your site. If you have multiple pages that contain attributes, then include each page as a separate attributes tag.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="1" ref="link"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="title"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="author"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="email"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="website"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="attr"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="hiddenattr"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="date"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="hotel_data"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="attr">
+<xs:annotation>
+<xs:documentation>
+A single piece of structured information about the listing. For example, if the name is Business Hours then the value can be Mon-Fri 9am-5pm. If the name is Payment Types Accepted, then the value can be Cash, Visa, Mastercard. Use the names and values that appear on your site.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.attr"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.attr">
+<xs:attribute name="name" use="required">
+<xs:annotation>
+<xs:documentation>The name of the field displayed on your site.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="anchor">
+<xs:annotation>
+<xs:documentation>
+When the attribute value is a URL and is displayed as a link in search results, this value will be used as the anchor text. If this value is missing, the value of name will be used instead.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="language" type="language.content">
+<xs:annotation>
+<xs:documentation>The language of the attr.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="hiddenattr">
+<xs:annotation>
+<xs:documentation>
+A single piece of structured information about the listing, which should be hidden from users, because it is used for some internal purpose.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.hiddenattr"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.hiddenattr">
+<xs:attribute name="name" use="required">
+<xs:annotation>
+<xs:documentation>The name of the hidden field.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="hotel_data">
+<xs:annotation>
+<xs:documentation>
+The hotel information about the listing. It contains a sub element "amenities" which enumerates all the supported amenities of a hotel.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" ref="amenities"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="amenities">
+<xs:annotation>
+<xs:documentation>The supported amenities of a hotel.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element name="accept_online_booking" minOccurs="0" type="amenity"/>
+<xs:element name="accessible_rooms" minOccurs="0" type="amenity"/>
+<xs:element name="air_conditioned" minOccurs="0" type="amenity"/>
+<xs:element name="airport_shuttle" minOccurs="0" type="amenity"/>
+<xs:element name="banquet_facilities" minOccurs="0" type="amenity"/>
+<xs:element name="bar_or_lounge" minOccurs="0" type="amenity"/>
+<xs:element name="beach" minOccurs="0" type="amenity"/>
+<xs:element name="boutique_or_shop" minOccurs="0" type="amenity"/>
+<xs:element name="business_center" minOccurs="0" type="amenity"/>
+<xs:element name="casino" minOccurs="0" type="amenity"/>
+<xs:element name="family_friendly" minOccurs="0" type="amenity"/>
+<xs:element name="fitness_facilities" minOccurs="0" type="amenity"/>
+<xs:element name="free_breakfast" minOccurs="0" type="amenity"/>
+<xs:element name="free_internet" minOccurs="0" type="amenity"/>
+<xs:element name="free_newspaper" minOccurs="0" type="amenity"/>
+<xs:element name="free_parking" minOccurs="0" type="amenity"/>
+<xs:element name="golf_course" minOccurs="0" type="amenity"/>
+<xs:element name="hot_tub" minOccurs="0" type="amenity"/>
+<xs:element name="in_room_kitchen" minOccurs="0" type="amenity"/>
+<xs:element name="indoor_pool" minOccurs="0" type="amenity"/>
+<xs:element name="internet" minOccurs="0" type="amenity"/>
+<xs:element name="kids_activities" minOccurs="0" type="amenity"/>
+<xs:element name="laundry" minOccurs="0" type="amenity"/>
+<xs:element name="non_smoking_rooms" minOccurs="0" type="amenity"/>
+<xs:element name="outdoor_pool" minOccurs="0" type="amenity"/>
+<xs:element name="parking" minOccurs="0" type="amenity"/>
+<xs:element name="pets_allowed" minOccurs="0" type="amenity"/>
+<xs:element name="pool" minOccurs="0" type="amenity"/>
+<xs:element name="restaurant" minOccurs="0" type="amenity"/>
+<xs:element name="room_service" minOccurs="0" type="amenity"/>
+<xs:element name="spa" minOccurs="0" type="amenity"/>
+<xs:element name="tennis_courts" minOccurs="0" type="amenity"/>
+<xs:element name="wakeup_service" minOccurs="0" type="amenity"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="amenity">
+<xs:annotation>
+<xs:documentation>The values are limited to yes/no/unknown.</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="yes"/>
+<xs:enumeration value="no"/>
+<xs:enumeration value="unknown"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="link" type="xs:string">
+<xs:annotation>
+<xs:documentation>
+The URL of the page on your site that contains the content. We will link the teaser on Google Local to this page.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="title">
+<xs:annotation>
+<xs:documentation>A short summary of the content.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="author">
+<xs:annotation>
+<xs:documentation>
+The name of the author of the content. The value can either be a user name or a full name in the format "Firstname Lastname".
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="author.content">
+<xs:attribute name="id" use="optional">
+<xs:annotation>
+<xs:documentation>A unique identifier for the author.</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="author.content">
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="body" type="xs:string">
+<xs:annotation>
+<xs:documentation>
+The entire text of a review or description of the listing. Can contain escaped HTML. Minimum review length may be enforced by the parser.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="website" type="xs:string">
+<xs:annotation>
+<xs:documentation>The official website of the business.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="email">
+<xs:annotation>
+<xs:documentation>
+An email address associated with a business listing.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="\s*\S+@\S+\.\S+\s*"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="rating">
+<xs:annotation>
+<xs:documentation>
+If applicable, the rating score associated with the review. The value should reflect how the rating appears on your site. If there are multiple ratings for a single review, then use a separate rating tag for each rating.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.rating"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.rating">
+<xs:attribute name="name">
+<xs:annotation>
+<xs:documentation>
+Type of the rating such as "Service" or "Food Quality". If there is only one rating score in the review, then name may be omitted.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="date">
+<xs:annotation>
+<xs:documentation>
+The date the listing or piece of content was created.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.date"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.date">
+<xs:attribute name="year" use="required">
+<xs:simpleType>
+<xs:restriction base="xs:unsignedInt">
+<xs:minInclusive value="1990"/>
+<xs:maxInclusive value="2099"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="month" use="required">
+<xs:simpleType>
+<xs:restriction base="xs:unsignedInt">
+<xs:minInclusive value="1"/>
+<xs:maxInclusive value="12"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="day" use="required">
+<xs:simpleType>
+<xs:restriction base="xs:unsignedInt">
+<xs:minInclusive value="1"/>
+<xs:maxInclusive value="31"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="coupon">
+<xs:annotation>
+<xs:documentation>Structured coupon information.</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element minOccurs="0" ref="offer"/>
+<xs:element minOccurs="0" ref="details"/>
+<xs:element minOccurs="0" ref="link"/>
+<xs:element minOccurs="0" ref="start_date"/>
+<xs:element minOccurs="0" ref="end_date"/>
+<xs:element minOccurs="0" ref="expiry_date"/>
+<xs:element minOccurs="0" ref="redeem"/>
+<xs:element minOccurs="0" ref="business_name"/>
+<xs:element minOccurs="0" ref="expiry_period"/>
+<xs:element minOccurs="0" ref="merchant_offer_id"/>
+<xs:element minOccurs="0" name="image_url" type="xs:string">
+<xs:annotation>
+<xs:documentation>
+A URL to fetch a PNG, JPG, or GIF image to appear in the coupon. The image should be 120x120, but will be proportionately resized if it is larger than this.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="searchable" type="xs:boolean" default="true">
+<xs:annotation>
+<xs:documentation>
+Whether the coupon can be discovered by search. Setting this value to false means that the content will not be included in the index. This allows the provider some control of how the coupon is promoted. E.g, they might be excluded from the index, but accessible via ads.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="club_card"/>
+<xs:element minOccurs="0" ref="barcode"/>
+<xs:element minOccurs="0" ref="provider_info">
+<xs:annotation>
+<xs:documentation>Defines data about the coupon feed provider.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.coupon"/>
+</xs:complexType>
+</xs:element>
+<xs:element name="business_name">
+<xs:annotation>
+<xs:documentation>
+The name of the business as it should appear on the coupon. This is useful when coupons are shared between related businesses, but the business name on the coupon should not differ.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="60"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="merchant_offer_id">
+<xs:annotation>
+<xs:documentation>
+This is printed on the coupon, and is used for clerks to recognize the offer and enter it into a point of sale system.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="30"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:attributeGroup name="attlist.coupon">
+<xs:attribute name="id">
+<xs:annotation>
+<xs:documentation>
+Unique coupon id. Coupon elements from the same coupon provider must have different coupon id.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+<xs:attribute name="idref">
+<xs:annotation>
+<xs:documentation>
+Refers to another coupon in the feed, one that is defined earlier in the feed file. The idref value must match the id of an earlier defined coupon. A coupon may have an idref, an id or both. Having an id without an idref indicates that the coupon is standalone, and does not inherit fields from any other coupon. Having an idref without an id indicates the coupon inherits its fields from the referenced coupon, and keeps the id of the referred coupon. Having both means that the coupon inherits its fields, but uses the new id. When an idref is used, the referenced coupon must be in either the shared content or the current listing.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="offer" type="xs:string">
+<xs:annotation>
+<xs:documentation>
+Succinct summary of offer and major restrictions. For example: "$5 off large pizza". The offer is required for all coupons, though this is not enforced by the XSD because coupons may be defined by reference to other coupons, in which case the offer does not need to be supplied.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="details">
+<xs:annotation>
+<xs:documentation>Detailed descriptions of the coupon restrictions.</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="detail" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="start_date">
+<xs:annotation>
+<xs:documentation>
+The first day on which the coupon can be used. The coupon will not be displayed before this date.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.date"/>
+</xs:complexType>
+</xs:element>
+<xs:element name="expiry_date">
+<xs:annotation>
+<xs:documentation>
+The last day on which the coupon can be used. The coupon will not be displayed after this date.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.date"/>
+</xs:complexType>
+</xs:element>
+<xs:element name="end_date">
+<xs:annotation>
+<xs:documentation>
+The last date on which the coupon can be presented. It is optional. This will be printed on the coupon. It is optional.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.date"/>
+</xs:complexType>
+</xs:element>
+<xs:element name="expiry_period">
+<xs:annotation>
+<xs:documentation>
+The number of days after printing that a coupon is valid. It is optional.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int">
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="999"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="redeem">
+<xs:annotation>
+<xs:documentation></xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attributeGroup ref="attlist.redeem"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.redeem">
+<xs:attribute name="desktop">
+<xs:annotation>
+<xs:documentation>
+If the coupon can't be redeemed from a PC, this field must be 'no' . Default value is 'yes'.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="yes"/>
+<xs:enumeration value="no"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="mobile">
+<xs:annotation>
+<xs:documentation>
+If the coupon can't be redeemed from a mobile phone, this field must be 'no'. Default value is 'yes'.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="yes"/>
+<xs:enumeration value="no"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:element name="provider_info">
+<xs:annotation>
+<xs:documentation>
+Information about the organization providing coupon information. This is typically only provided by third party providers who are providing listings coupons, and wish to apply their own branding to coupons.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element name="provider_name" minOccurs="0">
+<xs:annotation>
+<xs:documentation>The name of coupon provider organization.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="25"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="provider_logo" type="xs:string" minOccurs="0">
+<xs:annotation>
+<xs:documentation>
+The URL for the logo of your organization. This should be a GIF, JPG, or PNG image, and is allowed to be up to 100 pixels wide and 21 pixels high. It may not contain animation.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="provider_url" type="xs:string" minOccurs="0">
+<xs:annotation>
+<xs:documentation>
+The URL of the website for the coupon provider organization.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="barcode">
+<xs:annotation>
+<xs:documentation>
+Supported barcode types. Each type has restrictions on the type and amount of data that can be encoded. At most two barcodes are allowed for each coupon. In addition, there is a limit on the total amount of data that can be encoded in barcodes on a coupon. This limit depends on the the rendering style of the coupon, but is currently set at 32 bytes.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="2">
+<xs:element ref="UPC_A"/>
+<xs:element ref="EAN_13"/>
+<xs:element ref="UCC_EAN_128"/>
+<xs:element ref="CODE_128"/>
+<xs:element ref="CODE_39"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="UPC_A">
+<xs:annotation>
+<xs:documentation>
+UPC-A barcode data. This consists of a total of 11 or 12 decimal digits. The optional last digit is a check digit. If it is not supplied then we will calculate it.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-9]{11}[0-9]?"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="EAN_13">
+<xs:annotation>
+<xs:documentation>
+EAN-13 barcode data. This consists of a total of 12 or 13 decimal digits, with the first two digits being a number system that corresponds to coupons in the appropriate locale. The last digit is an optional check digit (if not supplied, we will supply it).
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-9]{12}[0-9]?"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="UCC_EAN_128">
+<xs:annotation>
+<xs:documentation>
+EAN-128 barcode data, also known as GS1-128. The specification of these is beyond the scope of this document, and the supplier should refer to the UCC standard. Formats 1-4 are supported.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="(8100[0-9]{6}(21[0-9]+)?)|(8101[0-9]{10}(21[0-9]+)?)|(8102[0-9]{2})"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="CODE_128">
+<xs:annotation>
+<xs:documentation>
+Code 128 barcode data. The payload consists of up to 32 ascii characters.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="\p{IsBasicLatin}{1,32}"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="CODE_39">
+<xs:annotation>
+<xs:documentation>
+Code 39 barcode data using up to 20 characters from a restricted character set. No checksum is required in the data.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-9A-Z ]{1,20}"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="club_card">
+<xs:annotation>
+<xs:documentation>
+Retailer's club card for coupon redemption. This is an experimental feature, and is not to be used by LEC feed partners without express agreement from Google.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="1" maxOccurs="1" name="card_name">
+<xs:annotation>
+<xs:documentation>Display name of the club card</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="30"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="1" maxOccurs="1" name="card_logo_url" type="xs:string">
+<xs:annotation>
+<xs:documentation>URL for the logo of the club card.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="add_to_card_message">
+<xs:annotation>
+<xs:documentation>
+Message text for call to action to add to club card (e.g. "Add to Card")
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="60"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="1" maxOccurs="1" name="add_to_card_url" type="xs:string">
+<xs:annotation>
+<xs:documentation>
+URL for handling user's action to add coupon to club card.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="business_logo_url" type="xs:string">
+<xs:annotation>
+<xs:documentation>URL for the store logo.</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+<xs:attributeGroup ref="attlist.club_card"/>
+</xs:complexType>
+</xs:element>
+<xs:attributeGroup name="attlist.club_card">
+<xs:attribute name="id">
+<xs:annotation>
+<xs:documentation>Club card id.</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[\.0-9a-zA-Z\-%$]{1,60}"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:attribute>
+<xs:attribute name="idref">
+<xs:annotation>
+<xs:documentation>
+Refers to another club card in the feed, one that is defined earlier in the feed file. A club card may have an idref, an id or both. Having an id without an idref indicates that the card is standalone, and does not inherit fields from any other card. Having an idref without an id indicates the card inherits its fields from the referenced card, and keeps the id of the referred card. Having both means that the card inherits its fields, but uses the new id. When an idref is used, the referenced card must be in either the shared content or the current listing.
+</xs:documentation>
+</xs:annotation>
+</xs:attribute>
+</xs:attributeGroup>
+<xs:complexType name="language_and_text">
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="language" type="language.content"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+<xs:element name="menu">
+<xs:annotation>
+<xs:documentation>Designates a Menu. e.g. a Lunch Menu.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="1" maxOccurs="unbounded">
+<xs:element minOccurs="1" maxOccurs="unbounded" name="name" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="description" type="language_and_text"/>
+<xs:element minOccurs="1" maxOccurs="unbounded" ref="menu_section"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="menu_section">
+<xs:annotation>
+<xs:documentation>Designates a section of a Menu. e.g. "Sandwiches".</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="1" maxOccurs="unbounded">
+<xs:element minOccurs="1" maxOccurs="unbounded" name="name" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="description" type="language_and_text"/>
+<xs:element minOccurs="1" maxOccurs="unbounded" ref="menu_item"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="menu_item">
+<xs:annotation>
+<xs:documentation>
+A menu item, typically representing a dish. Each menu item must have a name.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="1" maxOccurs="unbounded">
+<xs:element minOccurs="1" maxOccurs="unbounded" name="name" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="description" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="menu_option"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="menu_option">
+<xs:annotation>
+<xs:documentation>
+Options available for a menu item. If there is more than one menu option, a name is required for each option.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element minOccurs="0" maxOccurs="unbounded" name="name" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="description" type="language_and_text"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" ref="price"/>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="allergen_absent" type="xs:string">
+<xs:annotation>
+<xs:documentation>e.g. eggs, dairy, gluten.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="allergen_present" type="xs:string">
+<xs:annotation>
+<xs:documentation>e.g. eggs, dairy, gluten.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="dietary_restriction" type="xs:string">
+<xs:annotation>
+<xs:documentation>e.g. vegetarian, kosher.</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="calories" type="xs:string"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="spiciness"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+<xs:element name="price">
+<xs:annotation>
+<xs:documentation>Price of a menu item. e.g. 1.25.</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+<xs:attribute name="currency" type="xs:string"/>
+</xs:extension>
+</xs:simpleContent>
+</xs:complexType>
+</xs:element>
+<xs:simpleType name="price.currency">
+<xs:annotation>
+<xs:documentation>
+A ISO-4217 3-character currency code. Defaults to "USD".
+</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:length value="3"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="spiciness">
+<xs:simpleType>
+<xs:annotation>
+<xs:documentation>Spiciness of a dish: none, mild, medium or hot.</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"/>
+<xs:enumeration value="mild"/>
+<xs:enumeration value="medium"/>
+<xs:enumeration value="hot"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:schema>

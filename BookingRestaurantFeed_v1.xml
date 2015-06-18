@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<listings xmlns:xml="http://www.w3.org/XML/1998/namespace" xsi:schemaLocation="http://www.w3.org/XML/1998/namespace http://www.w3.org/2001/03/xml.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <language>en</language>
+<listing>
+    <id>69850</id>
+
+    <name>Thai Thai East</name>
+
+    <address format="simple">
+      <component name="addr1">110 Old Street</component>
+      <component name="city">London</component>
+      <component name="postal_code">EC1V 9BD</component>
+    </address>
+
+    <country>GB</country>
+    <latitude>51.524901</latitude>
+    <longitude>-0.092946</longitude>
+	
+    <phone type="main">02074905230x</phone>
+	
+    <category>Halal</category>
+    <category>Thai</category>
+	
+	<metroareaid>67</metroareaid>
+    <metroareaname>Inactiveville</metroareaname>
+    <nbhoodid>868</nbhoodid>
+    <nbhoodname>Los Muertos</nbhoodname>
+    <macroname>Villa de Muerte</macroname>
+	<aggratingscore>4.480000000</aggratingscore>
+	<recommended>93</recommended>
+    <totalratings>77</totalratings>
+    <siteid>.com</siteid>
+    <isactive>1</isactive>
+
+    <content>
+      <text>
+        <link>http://www.opentable.co.uk/rest_profile.aspx?rid=69850&amp;ref=4208</link>
+        <title>Thai Thai East - London</title>
+        <body>Located near Old Street station in London&apos;s East End, Thai Thai restaurant has become the dining destination de rigeur for hip socialistas and local foodies. The light and airy dining room with ruby and vanilla coloured walls, teak wood furniture and the freshest Spitalfield Market plants is perfect for relaxed meals with friends and colleagues. We recommend the Pad Thai, Somtam Salad, any of their array of curries; and coconut rice. Freshly blended exotic juices like Pomergranate, Tamarind and Young Coconut provide an insight into the mocktails, whilst the Strawberry Lover and Butterly Martini cocktails will compliment your group dinners.The long serving service team are famous for their friendly, helpful attitude and warm welcome. Sawadika!&lt;br /&gt;</body>
+      </text>
+
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">3</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">3</rating>
+
+        <body>We have  been here several times. The food is quite good, normally a bit expensive but at the moment they have a 40% off offer.  We had a Beef Pad Thai - I prefer shrimp, and a shrimp in chilly and a duck thais style, both of with were quite good. Nothing specil about this restaurant, but basically quite nice.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">5</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">5</rating>
+        <rating name="Service">5</rating>
+
+        <body>Thai Thai east  ... what to say ... it is so good ... live by and I go so often ... even better when they have the 40% off when you have a starter and a main menu.... it is worth to go as the food is excellent and the discount does not change the quality of this amazing food.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">3</rating>
+        <rating name="Food">2</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">3</rating>
+
+        <body>Went for a special meal with family -service was good, but some of the dishes were of poor or average quality.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">5</rating>
+        <rating name="Food">3</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">4</rating>
+
+        <body>I met a friend on Thursday evening, the last day of the 40% discount offer. We were greeted by friendly and attentive staff and led to our table. Our waiter (who&apos;s name I didn&apos;t catch) was humorous and suggested some fantastic dishes.  Throughout the meal staff were appropriately checking on us and we felt well looked after. I would defiantly done with Thai Thai again in future!</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">3</rating>
+        <rating name="Food">3</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">3</rating>
+
+        <body>Tempted by the 40% off food offer, even on a Saturday night which is strange. I guess it&apos;s because they aren&apos;t very busy and something is lacking in the food  and service, to only make it average.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">2</rating>
+        <rating name="Food">3</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">3</rating>
+
+        <body>Dined at Thai Thai East with the 40% discount off food offer. Decor was nice but the constant dance/trance music playing in the background was off-putting. Food at the 40% off was good value but would not go back if I had to pay full price. Food was decent but not the most authentic I have ever had.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">5</rating>
+
+        <body>My daughter and I had curry and we both thought that they were some of the most delicious we had ever eaten.  We only had a limited time for our meal because we had an important appointment, but the staff made sure that we were served very promptly.  We plan to go again.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">5</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">4</rating>
+
+        <body>I have been to Thai Thai East three times already because the food here is great and the service is very good. The decor has a modern asian feel and the staff are very friendly. It is also not far away from buzzing Shoreditch which is only a short walk away.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">3</rating>
+
+        <body>OKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOK</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">2</rating>
+        <rating name="Food">3</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">4</rating>
+
+        <body>We went to thai thai through the 40% openable offer. Food was good but was expecting better. portions were decent and the staff were friendly. Lighting in the restaurant was too dim. It&apos;s only ok with the openable discount, I&apos;m not sure I would pay full Price. 2x starters, 2x mains, 1x desert and a bottle of wine came to about £60 after discount.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">3</rating>
+
+        <body>Service is slow and staff not particularly helpful. Food is nice , some dishes a lot nicer than others</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">2</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">3</rating>
+        <rating name="Service">5</rating>
+
+        <body>We ate there before a concert at Barbican. Both starters and mains were very delicious.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">4</rating>
+
+        <body>As I said above we&apos;ve visited here many times and the food is always good.  The wine is too.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">4</rating>
+
+        <body>really good food and good for group dining and lovely cocktails</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">5</rating>
+
+        <body>Lovely food, we ordered a selection to share between the two of us and it was really filling. Would highly recommend and we will definitely go again!</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">3</rating>
+
+        <body>Exceptional food and value for money with the 40% off as per usual. Very busy as it was valentines weekend, but staff coped well. We&apos;ll keep coming back</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">4</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">4</rating>
+
+        <body>Consistently very good food and excellent service. More Thai desserts are needed on the menu though!</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">5</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">3</rating>
+
+        <body>We ordered veg rolls, satay and Pad Thai, it was amazing the taste was tantalising.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">4</rating>
+        <rating name="Service">3</rating>
+
+        <body>Great service, value and food, we were a group of nine and were accommodated very well.</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">4</rating>
+        <rating name="Food">5</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">5</rating>
+        <rating name="Service">5</rating>
+
+        <body>I haven&apos;t been back for about 2-3 years and the standard hasn&apos;t changed (menu altered slightly, but not too much). Each dish was fantastic, full of flavours and good portion sizes for both my partner and I, especially since we are quite big eaters. The 40% off deal made the whole dining experience amazing! Would go again and again..</body>
+      </review>
+      <review type="user">
+        <link>http://www.opentable.co.uk/rest_profile_reviews.aspx?rid=69850&amp;ref=7312</link>
+        <title>Thai Thai East - London</title>
+
+        <rating name="Ambience">1</rating>
+        <rating name="Food">3</rating>
+        <rating name="Noise">0</rating>
+        <rating name="Overall">1</rating>
+        <rating name="Service">1</rating>
+
+        <body>Extremely loud music. Appalling service - it took 20 minutes to come round and then another 30 for the drinks to come. Food is OK, but nothing special. Don&apos;t be tempted by the 40% discount (which, they &quot;forgot&quot; to apply and has to be reminded of) - there is a reason for it!!!</body>
+      </review>
+
+      <image type="photo" url="http://www.opentable.co.uk/img/restimages/69850.jpg" width="195" height="200">
+        <link>http://www.opentable.co.uk/rest_profile.aspx?rid=69850&amp;ref=4208</link>
+        <title>Thai Thai East - London</title>
+      </image>
+
+      <attributes>
+        <link>http://www.opentable.co.uk/rest_profile.aspx?rid=69850&amp;ref=4208</link>
+        <title>Thai Thai East Details</title>
+        <website>www.Oldstreetthaithai.co.uk</website>
+
+        <attr name="Additional Info">Beer</attr>
+        <attr name="Additional Info">Delivery</attr>
+        <attr name="Additional Info">Entertainment</attr>
+        <attr name="Additional Info">Full Bar</attr>
+        <attr name="Additional Info">Non-Smoking Restaurant</attr>
+        <attr name="Additional Info">Private Room</attr>
+        <attr name="Additional Info">Takeout</attr>
+        <attr name="Additional Info">Wine</attr>
+        <attr name="Dining Style">Casual Dining</attr>
+        <attr name="Dress Code">Smart Casual</attr>
+        <attr name="Executive Chef">P&apos;Nong</attr>
+        <attr name="Neighborhood">Old Street</attr>
+        <attr name="Parking Options">Street Parking</attr>
+        <attr name="Payment accepted">AMEX</attr>
+        <attr name="Payment accepted">MasterCard</attr>
+        <attr name="Payment accepted">Visa</attr>
+		<attr name="Price">$30 and under</attr>
+        <attr name="Price Quartile">£££</attr>
+        <attr name="Public Transit Stops">Old street station</attr>
+        <attr name="Reservation">http://www.opentable.co.uk/rest_profile.aspx?rid=69850&amp;ref=4208</attr>
+        <attr name="Tip Policy">1%</attr>
+        <attr name="Walkins Accepted">Yes</attr>
+		<attr name="Hours">Sunday – Thursday: 10:00am – 10:00pm; Friday &amp; Saturday: 10:00am – 3:00am</attr>
+		<attr name="tag1">neighborhood gem</attr>
+	    <attr name="tag2">good for groups</attr>
+	    <attr name="tag3">great for lunch</attr>
+	    <attr name="tag4">romantic</attr>
+	    <attr name="tag5">special occasion</attr>
+	    <attr name="tag6">fit for foodies</attr>
+	    <attr name="tag7">hot spot</attr>
+	    <attr name="tag8">kid-friendly</attr>
+	    <attr name="tag9">notable wine list</attr>
+	    <attr name="tag10">vibrant bar scene</attr>
+	    <attr name="tag11">great for brunch</attr>
+	    <attr name="tag12">great for outdoor dining</attr>
+	    <attr name="tag13">late-night find</attr>
+	    <attr name="tag14">scenic view</attr>
+		<attr name="food">4.450000000</attr>
+        <attr name="service">4.530000000</attr>
+        <attr name="ambience">4.190000000</attr>
+        <attr name="noise">1.780000000</attr>
+        </attributes>
+    </content>
+  </listing>
+</listings>
